@@ -52,7 +52,7 @@ ls -la keys.txt
 
 На скриншоте видно сгенерированный публичный ключ и права доступа на `keys.txt`:
 
-![Генерация ключей age](3.png)
+![Генерация ключей age](4.png)
 
 ---
 
@@ -74,7 +74,7 @@ sops_version: 3.9.1
 
 Создание `.sops.yaml` через here‑document в Shell и его содержимое:
 
-![Файл .sops.yaml](4.png)
+![Файл .sops.yaml](5.png)
 
 ---
 
@@ -97,7 +97,7 @@ EOF
 
 Пример команды `git add` после настройки игнорируемых файлов:
 
-![Файл .gitignore и git add](5.png)
+![Файл .gitignore и git add](6.png)
 
 ---
 
@@ -126,7 +126,7 @@ EOF
 
 Ниже показано содержимое незашифрованного файла `postgres.yaml` в редакторе:
 
-![Исходный postgres.yaml](6.png)
+![Исходный postgres.yaml](7.png)
 
 ---
 
@@ -143,7 +143,7 @@ head -30 secrets/database/postgres.enc.yaml
 
 На следующем скриншоте видно, что все чувствительные поля заменены на блоки `ENC[AES256_GCM,...]`:
 
-![Зашифрованный postgres.enc.yaml](7.png)
+![Зашифрованный postgres.enc.yaml](8.png)
 
 ---
 
@@ -159,7 +159,7 @@ chmod 400 ~/.config/sops/age/keys.txt
 
 Содержимое каталога с ключом:
 
-![Каталог с ключом для SOPS](8.png)
+![Каталог с ключом для SOPS](9.png)
 
 ---
 
@@ -173,7 +173,7 @@ sops --decrypt secrets/database/postgres.enc.yaml
 
 На скриншоте видно, что SOPS восстанавливает исходный YAML с паролями `secret` и `ultrasecret`:
 
-![Расшифровка postgres.enc.yaml](9.png)
+![Расшифровка postgres.enc.yaml](10.png)
 
 ---
 
@@ -181,7 +181,7 @@ sops --decrypt secrets/database/postgres.enc.yaml
 
 Для наглядности файл `postgres.enc.yaml` был открыт в редакторе, чтобы сравнить его с исходным `postgres.yaml`.
 
-![postgres.enc.yaml в редакторе](10.png)
+![postgres.enc.yaml в редакторе](11.png)
 
 ---
 
@@ -197,6 +197,6 @@ git commit -m "Configure SOPS + age and encrypt postgres secret"
 
 Общий вид репозитория и подтверждение успешного шифрования показаны на итоговом скриншоте:
 
-![Итоговое состояние репозитория](11.png)
+![Итоговое состояние репозитория](12.png)
 
 ---
