@@ -1,0 +1,8 @@
+# НИКОГДА не коммитим приватные ключи!
+keys.txt
+*.private
+*.secret
+~/.config/sops/age/
+*.swp
+*.tmp
+*~
