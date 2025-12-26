@@ -147,17 +147,11 @@ head -30 secrets/database/postgres.enc.yaml
 
 ---
 
-## 8. Настройка ключа для SOPS
-
-Чтобы SOPS мог автоматически находить приватный ключ, он был добавлен в конфигурацию.
+## 8. Просмотр Зашифрованного файла
 
 ```bash
-mkdir -p ~/.config/sops/age
-cp keys.txt ~/.config/sops/age/keys.txt
-chmod 400 ~/.config/sops/age/keys.txt
+ head -30 secrets/database/postgres.enc.yaml
 ```
-
-Содержимое каталога с ключом:
 
 ![Каталог с ключом для SOPS](9.png)
 
