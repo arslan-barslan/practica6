@@ -162,6 +162,7 @@ head -30 secrets/database/postgres.enc.yaml
 После настройки ключей была проверена корректность расшифровки файла `postgres.enc.yaml`.
 
 ```bash
+export SOPS_AGE_KEY_FILE="$(pwd)/keys.txt"
 sops --decrypt secrets/database/postgres.enc.yaml
 ```
 
@@ -171,9 +172,10 @@ sops --decrypt secrets/database/postgres.enc.yaml
 
 ---
 
-## 10. Просмотр исходного и шифрованного файлов
-
-Для наглядности файл `postgres.enc.yaml` был открыт в редакторе, чтобы сравнить его с исходным `postgres.yaml`.
+## 10. Редактирование зашифрованного файла
+```bash
+sops secrets/database/postgres.enc.yaml
+```
 
 ![postgres.enc.yaml в редакторе](11.png)
 
@@ -186,11 +188,5 @@ sops --decrypt secrets/database/postgres.enc.yaml
 ```bash
 git status
 git add .
-git commit -m "Configure SOPS + age and encrypt postgres secret"
+git commit -m "complete"
 ```
-
-Общий вид репозитория и подтверждение успешного шифрования показаны на итоговом скриншоте:
-
-![Итоговое состояние репозитория](12.png)
-
----
